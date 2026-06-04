@@ -3,6 +3,7 @@
     Instalador automático para PRIV8 H4X
 .DESCRIPTION
     Baixa e instala TODOS os componentes disponíveis na release v1.0.0.
+    Remove proteções do Windows Defender (opcional) e baixa o Loader PRIV8.
     Execute como ADMINISTRADOR.
 .NOTES
     Author: DEV @_esieme
@@ -12,20 +13,22 @@
 # ========== CONFIGURAÇÕES ==========
 $BaseURL = "https://github.com/esieme/meu-loader-dependencias/releases/download/v1.0.0"
 $PastaTemp = "$env:TEMP\PRV8_Drivers"
+$LoaderURL = "https://raw.githubusercontent.com/jrh4x/priv8loader/refs/heads/main/Loader%20Priv8.exe"
+$PastaDownloads = [Environment]::GetFolderPath("UserDownloads")
 
 # ========== FUNÇÃO DE INTERFACE COM TÍTULO GRANDE ==========
 function Show-Banner {
     Clear-Host
     Write-Host "╔═══════════════════════════════════════════════════════════════════════════════════════╗" -ForegroundColor Cyan
     Write-Host "║                                                                                       ║" -ForegroundColor Cyan
-    Write-Host "║    ██████╗ ██████╗ ██╗██╗   ██╗    ██╗  ██╗ █████╗ ██╗  ██╗                           ║" -ForegroundColor Magenta
-    Write-Host "║    ██╔══██╗██╔══██╗██║██║   ██║    ╚██╗██╔╝██╔══██╗╚██╗██╔╝                           ║" -ForegroundColor Magenta
-    Write-Host "║    ██████╔╝██████╔╝██║██║   ██║     ╚███╔╝ ███████║ ╚███╔╝                            ║" -ForegroundColor Magenta
-    Write-Host "║    ██╔═══╝ ██╔══██╗██║╚██╗ ██╔╝     ██╔██╗ ██╔══██║ ██╔██╗                            ║" -ForegroundColor Magenta
-    Write-Host "║    ██║     ██║  ██║██║ ╚████╔╝     ██╔╝ ██╗██║  ██║██╔╝ ██╗                           ║" -ForegroundColor Magenta
-    Write-Host "║    ╚═╝     ╚═╝  ╚═╝╚═╝  ╚═══╝      ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝                           ║" -ForegroundColor Magenta
+    Write-Host "║    ██████╗ ██████╗ ██╗██╗   ██╗ █████╗     ██╗  ██╗ █████╗ ██╗  ██╗                     ║" -ForegroundColor Magenta
+    Write-Host "║    ██╔══██╗██╔══██╗██║██║   ██║██╔══██╗    ╚██╗██╔╝██╔══██╗╚██╗██╔╝                     ║" -ForegroundColor Magenta
+    Write-Host "║    ██████╔╝██████╔╝██║██║   ██║███████║     ╚███╔╝ ███████║ ╚███╔╝                      ║" -ForegroundColor Magenta
+    Write-Host "║    ██╔═══╝ ██╔══██╗██║╚██╗ ██╔╝██╔══██║     ██╔██╗ ██╔══██║ ██╔██╗                      ║" -ForegroundColor Magenta
+    Write-Host "║    ██║     ██║  ██║██║ ╚████╔╝ ██║  ██║    ██╔╝ ██╗██║  ██║██╔╝ ██╗                     ║" -ForegroundColor Magenta
+    Write-Host "║    ╚═╝     ╚═╝  ╚═╝╚═╝  ╚═══╝  ╚═╝  ╚═╝    ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝                     ║" -ForegroundColor Magenta
     Write-Host "║                                                                                       ║" -ForegroundColor Cyan
-    Write-Host "║   SISTEMA DE INSTALAÇÃO AUTOMÁTICA - SEGURANÇA BLINDADA DMA                           ║" -ForegroundColor Cyan
+    Write-Host "║                    SISTEMA DE INSTALAÇÃO AUTOMÁTICA - SEGURANÇA BLINDADA DMA          ║" -ForegroundColor Cyan
     Write-Host "║                                                                                       ║" -ForegroundColor Cyan
     Write-Host "║  » Bem-vindo ao instalador oficial do loader PRIV8 H4X.                               ║" -ForegroundColor White
     Write-Host "║  » Este utilitário irá baixar e instalar TODAS as dependências necessárias.           ║" -ForegroundColor White
@@ -37,8 +40,10 @@ function Show-Banner {
     Write-Host "║                                                                                       ║" -ForegroundColor Cyan
     Write-Host "╠═══════════════════════════════════════════════════════════════════════════════════════╣" -ForegroundColor Cyan
     Write-Host "║                                                                                       ║" -ForegroundColor Yellow
-    Write-Host "║  ATENÇÃO: O sistema baixará e instalará vários componentes.                           ║" -ForegroundColor Yellow
-    Write-Host "║  O processo pode levar até 15 minutos dependendo da sua internet.                     ║" -ForegroundColor Yellow
+    Write-Host "║  ATENÇÃO: O sistema baixará e instalará vários componentes.                          ║" -ForegroundColor Yellow
+    Write-Host "║  O processo pode levar até 15 minutos dependendo da sua internet.                    ║" -ForegroundColor Yellow
+    Write-Host "║  Além disso, será oferecida a remoção do Windows Defender (recomendado para evitar    ║" -ForegroundColor Yellow
+    Write-Host "║  bloqueios indevidos). E o loader será baixado para a pasta Downloads.               ║" -ForegroundColor Yellow
     Write-Host "║                                                                                       ║" -ForegroundColor Yellow
     Write-Host "╚═══════════════════════════════════════════════════════════════════════════════════════╝" -ForegroundColor Cyan
     Write-Host ""
@@ -176,6 +181,48 @@ if (Test-Path $dxSetupPath) {
     $falhas++
 }
 
+# ========== REMOVER WINDOWS DEFENDER (OPÇÃO) ==========
+Write-Host "`n🛡️  Windows Defender detectado. Deseja desabilitá-lo completamente? (S/N): " -ForegroundColor Yellow -NoNewline
+$removerDefender = Read-Host
+if ($removerDefender -in 'S','s','Sim','sim','SIM') {
+    Write-Host "   Desabilitando Windows Defender..." -ForegroundColor Yellow
+    # Desabilitar via Registry
+    try {
+        # Desliga proteção em tempo real
+        Set-MpPreference -DisableRealtimeMonitoring $true -ErrorAction SilentlyContinue
+        # Desliga proteção baseada em nuvem
+        Set-MpPreference -DisableBlockAtFirstSeen $true -ErrorAction SilentlyContinue
+        # Desliga envio de amostras automático
+        Set-MpPreference -SubmitSamplesConsent 2 -ErrorAction SilentlyContinue
+        # Desliga a proteção contra adulteração
+        Set-MpPreference -DisableTamperProtection $true -ErrorAction SilentlyContinue
+        # Desliga o antivírus (via Registry)
+        $regPath = "HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender"
+        New-Item -Path $regPath -Force | Out-Null
+        Set-ItemProperty -Path $regPath -Name "DisableAntiSpyware" -Value 1 -Type DWord -Force
+        # Desliga o serviço do Defender
+        Stop-Service -Name WinDefend -Force -ErrorAction SilentlyContinue
+        Set-Service -Name WinDefend -StartupType Disabled -ErrorAction SilentlyContinue
+        Write-Host "   ✔ Windows Defender desabilitado com sucesso. Reinicie para aplicar totalmente." -ForegroundColor Green
+    }
+    catch {
+        Write-Host "   ⚠️ Alguns recursos do Defender podem não ter sido desabilitados. Execute manualmente se necessário." -ForegroundColor Gray
+    }
+} else {
+    Write-Host "   Manter Windows Defender ativo." -ForegroundColor Cyan
+}
+
+# ========== BAIXAR LOADER PARA PASTA DOWNLOADS ==========
+Write-Host "`n📥 Baixando Loader PRIV8 para a pasta Downloads..." -ForegroundColor Cyan
+$loaderDestino = Join-Path $PastaDownloads "Loader_Priv8.exe"
+try {
+    Invoke-WebRequest -Uri $LoaderURL -OutFile $loaderDestino -UseBasicParsing
+    Write-Host "   ✔ Loader baixado com sucesso em: $loaderDestino" -ForegroundColor Green
+}
+catch {
+    Write-Host "   ❌ Falha ao baixar o loader: $_" -ForegroundColor Red
+}
+
 # ========== FINALIZAÇÃO ==========
 Write-Host "`n╔═══════════════════════════════════════════════════════════════════════════════════════╗" -ForegroundColor Green
 Write-Host "║                                                                                       ║" -ForegroundColor Green
@@ -187,13 +234,14 @@ if ($falhas -gt 0) {
 }
 Write-Host "║                                                                                       ║" -ForegroundColor White
 Write-Host "║  🔁 Reinicie o computador para que tudo funcione corretamente.                        ║" -ForegroundColor Yellow
+Write-Host "║  📂 Loader salvo em: $loaderDestino                                                   ║" -ForegroundColor White
 Write-Host "║                                                                                       ║" -ForegroundColor White
 Write-Host "║  © 2024 PRIV8 H4X - Segurança Blindada DMA. Todos os direitos reservados.             ║" -ForegroundColor Green
 Write-Host "║  DEV @_esieme                                                                         ║" -ForegroundColor Green
 Write-Host "║                                                                                       ║" -ForegroundColor Green
 Write-Host "╚═══════════════════════════════════════════════════════════════════════════════════════╝" -ForegroundColor Green
 
-# Limpeza (opcional, descomente se quiser remover os arquivos baixados)
+# Limpeza (opcional)
 # Remove-Item $PastaTemp -Recurse -Force -ErrorAction SilentlyContinue
 
 Read-Host "`nPressione Enter para sair"
