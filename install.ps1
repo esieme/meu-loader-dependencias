@@ -21,14 +21,14 @@ function Show-Banner {
     Clear-Host
     Write-Host "╔═══════════════════════════════════════════════════════════════════════════════════════╗" -ForegroundColor Cyan
     Write-Host "║                                                                                       ║" -ForegroundColor Cyan
-    Write-Host "║    ██████╗ ██████╗ ██╗██╗   ██╗ █████╗     ██╗  ██╗ █████╗ ██╗  ██╗                     ║" -ForegroundColor Magenta
-    Write-Host "║    ██╔══██╗██╔══██╗██║██║   ██║██╔══██╗    ╚██╗██╔╝██╔══██╗╚██╗██╔╝                     ║" -ForegroundColor Magenta
-    Write-Host "║    ██████╔╝██████╔╝██║██║   ██║███████║     ╚███╔╝ ███████║ ╚███╔╝                      ║" -ForegroundColor Magenta
-    Write-Host "║    ██╔═══╝ ██╔══██╗██║╚██╗ ██╔╝██╔══██║     ██╔██╗ ██╔══██║ ██╔██╗                      ║" -ForegroundColor Magenta
-    Write-Host "║    ██║     ██║  ██║██║ ╚████╔╝ ██║  ██║    ██╔╝ ██╗██║  ██║██╔╝ ██╗                     ║" -ForegroundColor Magenta
-    Write-Host "║    ╚═╝     ╚═╝  ╚═╝╚═╝  ╚═══╝  ╚═╝  ╚═╝    ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝                     ║" -ForegroundColor Magenta
+    Write-Host "║    ██████╗ ██████╗ ██╗██╗   ██╗    ██╗  ██╗ █████╗ ██╗  ██╗                           ║" -ForegroundColor Magenta
+    Write-Host "║    ██╔══██╗██╔══██╗██║██║   ██║    ╚██╗██╔╝██╔══██╗╚██╗██╔╝                           ║" -ForegroundColor Magenta
+    Write-Host "║    ██████╔╝██████╔╝██║██║   ██║     ╚███╔╝ ███████║ ╚███╔╝                            ║" -ForegroundColor Magenta
+    Write-Host "║    ██╔═══╝ ██╔══██╗██║╚██╗ ██╔╝     ██╔██╗ ██╔══██║ ██╔██╗                            ║" -ForegroundColor Magenta
+    Write-Host "║    ██║     ██║  ██║██║ ╚████╔╝     ██╔╝ ██╗██║  ██║██╔╝ ██╗                           ║" -ForegroundColor Magenta
+    Write-Host "║    ╚═╝     ╚═╝  ╚═╝╚═╝  ╚═══╝      ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝                           ║" -ForegroundColor Magenta
     Write-Host "║                                                                                       ║" -ForegroundColor Cyan
-    Write-Host "║                    SISTEMA DE INSTALAÇÃO AUTOMÁTICA - SEGURANÇA BLINDADA DMA          ║" -ForegroundColor Cyan
+    Write-Host "║   SISTEMA DE INSTALAÇÃO AUTOMÁTICA - MELHOR PAINEL PRIV8 alweys                       ║" -ForegroundColor Cyan
     Write-Host "║                                                                                       ║" -ForegroundColor Cyan
     Write-Host "║  » Bem-vindo ao instalador oficial do loader PRIV8 H4X.                               ║" -ForegroundColor White
     Write-Host "║  » Este utilitário irá baixar e instalar TODAS as dependências necessárias.           ║" -ForegroundColor White
@@ -36,14 +36,14 @@ function Show-Banner {
     Write-Host "║  » Execute como ADMINISTRADOR para evitar erros.                                      ║" -ForegroundColor Yellow
     Write-Host "║                                                                                       ║" -ForegroundColor Cyan
     Write-Host "║  © 2024 PRIV8 H4X - Segurança Blindada DMA. Todos os direitos reservados.             ║" -ForegroundColor Green
-    Write-Host "║  DEV @_esieme                                                                         ║" -ForegroundColor Green
+    Write-Host "║  DEV @_esieme - @Jr_h4x                                                               ║" -ForegroundColor Green
     Write-Host "║                                                                                       ║" -ForegroundColor Cyan
     Write-Host "╠═══════════════════════════════════════════════════════════════════════════════════════╣" -ForegroundColor Cyan
     Write-Host "║                                                                                       ║" -ForegroundColor Yellow
-    Write-Host "║  ATENÇÃO: O sistema baixará e instalará vários componentes.                          ║" -ForegroundColor Yellow
-    Write-Host "║  O processo pode levar até 15 minutos dependendo da sua internet.                    ║" -ForegroundColor Yellow
+    Write-Host "║  ATENÇÃO: O sistema baixará e instalará vários componentes.                           ║" -ForegroundColor Yellow
+    Write-Host "║  O processo pode levar até 15 minutos dependendo da sua internet.                     ║" -ForegroundColor Yellow
     Write-Host "║  Além disso, será oferecida a remoção do Windows Defender (recomendado para evitar    ║" -ForegroundColor Yellow
-    Write-Host "║  bloqueios indevidos). E o loader será baixado para a pasta Downloads.               ║" -ForegroundColor Yellow
+    Write-Host "║  bloqueios indevidos). E o loader será baixado para a pasta Downloads.                ║" -ForegroundColor Yellow
     Write-Host "║                                                                                       ║" -ForegroundColor Yellow
     Write-Host "╚═══════════════════════════════════════════════════════════════════════════════════════╝" -ForegroundColor Cyan
     Write-Host ""
@@ -224,13 +224,13 @@ catch {
 }
 
 # ========== FINALIZAÇÃO ==========
-Write-Host "`n╔═══════════════════════════════════════════════════════════════════════════════════════╗" -ForegroundColor Green
+Write-Host "`n╔═════════════════════════════════════════════════════════════════════════════════════╗" -ForegroundColor Green
 Write-Host "║                                                                                       ║" -ForegroundColor Green
-Write-Host "║                           INSTALAÇÃO CONCLUÍDA!                                        ║" -ForegroundColor Green
+Write-Host "║                           INSTALAÇÃO CONCLUÍDA!                                       ║" -ForegroundColor Green
 Write-Host "║                                                                                       ║" -ForegroundColor Green
-Write-Host "║  ✅ Componentes instalados com sucesso: $ok de $($totalExe+1) (incluindo DirectX)               ║" -ForegroundColor White
+Write-Host "║  ✅ Componentes instalados com sucesso: $ok de $($totalExe+1) (incluindo DirectX)    ║" -ForegroundColor White
 if ($falhas -gt 0) {
-    Write-Host "║  ⚠️  Falhas: $falhas (verifique manualmente se necessário)                               ║" -ForegroundColor Yellow
+    Write-Host "║  ⚠️  Falhas: $falhas (verifique manualmente se necessário)                       ║" -ForegroundColor Yellow
 }
 Write-Host "║                                                                                       ║" -ForegroundColor White
 Write-Host "║  🔁 Reinicie o computador para que tudo funcione corretamente.                        ║" -ForegroundColor Yellow
