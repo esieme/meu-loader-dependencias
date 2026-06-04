@@ -13,12 +13,18 @@
 $BaseURL = "https://github.com/esieme/meu-loader-dependencias/releases/download/v1.0.0"
 $PastaTemp = "$env:TEMP\PRV8_Drivers"
 
-# ========== FUNÇÃO DE INTERFACE (PAINEL PROFISSIONAL) ==========
+# ========== FUNÇÃO DE INTERFACE COM TÍTULO GRANDE ==========
 function Show-Banner {
     Clear-Host
     Write-Host "╔═══════════════════════════════════════════════════════════════════════════════════════╗" -ForegroundColor Cyan
     Write-Host "║                                                                                       ║" -ForegroundColor Cyan
-    Write-Host "║                                 PRIV8 H4X                                            ║" -ForegroundColor Magenta
+    Write-Host "║    ██████╗ ██████╗ ██╗██╗   ██╗ █████╗     ██╗  ██╗ █████╗ ██╗  ██╗                     ║" -ForegroundColor Magenta
+    Write-Host "║    ██╔══██╗██╔══██╗██║██║   ██║██╔══██╗    ╚██╗██╔╝██╔══██╗╚██╗██╔╝                     ║" -ForegroundColor Magenta
+    Write-Host "║    ██████╔╝██████╔╝██║██║   ██║███████║     ╚███╔╝ ███████║ ╚███╔╝                      ║" -ForegroundColor Magenta
+    Write-Host "║    ██╔═══╝ ██╔══██╗██║╚██╗ ██╔╝██╔══██║     ██╔██╗ ██╔══██║ ██╔██╗                      ║" -ForegroundColor Magenta
+    Write-Host "║    ██║     ██║  ██║██║ ╚████╔╝ ██║  ██║    ██╔╝ ██╗██║  ██║██╔╝ ██╗                     ║" -ForegroundColor Magenta
+    Write-Host "║    ╚═╝     ╚═╝  ╚═╝╚═╝  ╚═══╝  ╚═╝  ╚═╝    ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝                     ║" -ForegroundColor Magenta
+    Write-Host "║                                                                                       ║" -ForegroundColor Cyan
     Write-Host "║                    SISTEMA DE INSTALAÇÃO AUTOMÁTICA - SEGURANÇA BLINDADA DMA          ║" -ForegroundColor Cyan
     Write-Host "║                                                                                       ║" -ForegroundColor Cyan
     Write-Host "║  » Bem-vindo ao instalador oficial do loader PRIV8 H4X.                               ║" -ForegroundColor White
