@@ -46,7 +46,7 @@ function Show-Banner {
     Write-Host "║                                                                                       ║" -ForegroundColor Yellow
     Write-Host "║  ATENÇÃO: O sistema baixará e instalará vários componentes.                           ║" -ForegroundColor Yellow
     Write-Host "║  O processo pode levar até 15 minutos dependendo da sua internet.                     ║" -ForegroundColor Yellow
-    Write-Host "║                                                                                       ║" -ForegroundColor Yellow
+    Write-Host "║  Opçao de remover completamente o defender e instalaao do loader                      ║" -ForegroundColor Yellow
     Write-Host "╚═══════════════════════════════════════════════════════════════════════════════════════╝" -ForegroundColor Cyan
     Write-Host ""
 }
