@@ -32,7 +32,7 @@ function Show-Banner {
     Write-Host "║    ██║     ██║  ██║██║ ╚████╔╝     ██╔╝ ██╗██║  ██║██╔╝ ██╗                           ║" -ForegroundColor Magenta
     Write-Host "║    ╚═╝     ╚═╝  ╚═╝╚═╝  ╚═══╝      ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝                           ║" -ForegroundColor Magenta
     Write-Host "║                                                                                       ║" -ForegroundColor Cyan
-    Write-Host "║   SISTEMA DE INSTALAÇÃO AUTOMÁTICA - SEGURANÇA BLINDADA DMA                           ║" -ForegroundColor Cyan
+    Write-Host "║   SISTEMA DE INSTALAÇÃO AUTOMÁTICA - MELHOR PAINEL PRIV8 @Jr_h4x - @_esieme           ║" -ForegroundColor Cyan
     Write-Host "║                                                                                       ║" -ForegroundColor Cyan
     Write-Host "║  » Bem-vindo ao instalador oficial do loader PRIV8 H4X.                               ║" -ForegroundColor White
     Write-Host "║  » Este utilitário irá baixar e instalar TODAS as dependências necessárias.           ║" -ForegroundColor White
