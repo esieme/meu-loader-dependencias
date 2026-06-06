@@ -20,7 +20,7 @@ $PastaDownloads = [Environment]::GetFolderPath("UserDownloads")
 $CaminhoLoader = Join-Path $PastaDownloads "Loader Priv8.exe"
 $SenhaScript = "devesieme1357"
 
-# ========== FUNÇÃO DE INTERFACE COM TÍTULO GRANDE ==========
+# ========== FUNÇÃO DE INTERFACE COM TÍTULO ==========
 function Show-Banner {
     Clear-Host
     Write-Host "╔═══════════════════════════════════════════════════════════════════════════════════════╗" -ForegroundColor Cyan
